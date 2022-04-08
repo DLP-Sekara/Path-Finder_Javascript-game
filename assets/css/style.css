@@ -24,3 +24,7 @@ body{
     height: 50px;
     border: 1px solid blue;
 }
+.target{
+    background-color: green;
+    border-radius: 100%;
+}
