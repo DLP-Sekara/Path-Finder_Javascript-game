@@ -1,0 +1,23 @@
+body{
+    position: relative;
+}
+.main{
+    position: relative;
+    height: 97vh;
+    width: 100%;
+}
+#grid{
+    height: 100vmin;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100vmin;
+    border: solid 2px red;
+    display: grid;
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+}
+
