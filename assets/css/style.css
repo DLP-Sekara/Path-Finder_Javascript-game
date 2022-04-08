@@ -28,3 +28,11 @@ body{
     background-color: green;
     border-radius: 100%;
 }
+.bomb{
+    /*background-color: black;
+    border-radius: 20%;
+    width: 50px;!important;
+    height: 40px;!important;*/
+    background: url("../img/bomb3.gif");
+    background-size: cover;
+}
