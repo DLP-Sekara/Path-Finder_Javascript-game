@@ -24,7 +24,7 @@ body{
     height: 50px;
 
 }
-.target{
+.challenge{
     background: url("../img/terorist.webp");
     background-size: cover;
     border: 1px solid white;
@@ -44,4 +44,12 @@ body{
     background-color: lightseagreen;
     border-radius: 20%;
     border: 1px solid #f8e6c6;
+}
+.runner{
+    background: url("../img/runner.gif");
+    background-size: cover;
+}
+.target{
+    background: url("../img/flag2.gif");
+    background-size: cover;
 }

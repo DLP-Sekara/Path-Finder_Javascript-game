@@ -1,8 +1,8 @@
 for (var i=0;i<132;i++){
     $("#grid").append("<div></div>");
 }
-var targetBox=[
-    0,1,2,3
+var challengeBox=[
+    11,12,13,14
 ];
 var pathBox=[
     44,46,47,48,49,51,52,53,54,56,57,60,61,62,65,66,67,69,70,72,74,76,78,80,81,84,85,87,88,90,91,93,94,96,98,99,100,101,
@@ -11,15 +11,17 @@ var pathBox=[
 var bombBox=[
     45,50,55,58,59,63,64,68,71,73,75,77,79,82,83,86,89,92,95,97,105,112,114,118,122,127,130
 ];
+var height=12;
+var width=11;
+var currentLocation=121;
 const allDiv = Array.from($("#grid div"));
 
 setTarget();
 function setTarget() {
-    for (var i=0;i<targetBox.length;i++){
-        allDiv[targetBox[i]].classList.add("target");
+    for (var i=0;i<challengeBox.length;i++){
+        allDiv[challengeBox[i]].classList.add("challenge");
     }
 }
-
 setBomb();
 function setBomb() {
     for (var i=0;i<bombBox.length;i++){
@@ -32,3 +34,46 @@ function setPath() {
         allDiv[pathBox[i]].classList.add("path");
     }
 }
+allDiv[currentLocation].classList.add("runner");
+allDiv[5].classList.add("target");
+
+$(".body").keydown(function (event) {
+
+    switch (event.key) {
+        case 'ArrowLeft':
+            allDiv[currentLocation].classList.remove("runner");
+            console.log("left");
+            break;
+        case 'ArrowRight':
+            allDiv[currentLocation].classList.remove("runner");
+            console.log("right");
+            break;
+        case 'ArrowUp' :
+            if (height > 0 & height!==1) {
+                console.log(height);
+                height--;
+                console.log(height);
+                if (height > 0) {
+                    allDiv[currentLocation].classList.remove("runner");
+                    allDiv[currentLocation - 11].classList.add("runner");
+                    currentLocation = currentLocation - 11;
+                }
+            }
+            console.log("top");
+            break;
+        case 'ArrowDown' :
+            if (height < 12 ){
+            console.log(height)
+            height++;
+            console.log(height)
+            if (height <= 12) {
+                allDiv[currentLocation].classList.remove("runner");
+                allDiv[currentLocation + 11].classList.add("runner");
+                currentLocation = currentLocation + 11;
+            }
+    }
+            console.log("bottom");
+            break;
+
+    }
+})
