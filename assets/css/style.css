@@ -22,11 +22,13 @@ body{
 #grid div{
     width: 60px;
     height: 50px;
-    border: 1px solid blue;
+
 }
 .target{
-    background-color: green;
-    border-radius: 100%;
+    background: url("../img/terorist.webp");
+    background-size: cover;
+    border: 1px solid white;
+    border-radius: 20%;
 }
 .bomb{
     /*background-color: black;
@@ -35,4 +37,11 @@ body{
     height: 40px;!important;*/
     background: url("../img/bomb3.gif");
     background-size: cover;
+    border-radius: 20%;
+    border: 1px solid #f8e6c6;
+}
+.path{
+    background-color: lightseagreen;
+    border-radius: 20%;
+    border: 1px solid #f8e6c6;
 }
