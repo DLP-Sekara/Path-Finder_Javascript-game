@@ -13,6 +13,9 @@ var pathBox = [
 var bombBox = [
     45, 50, 55, 58, 59, 63, 64, 68, 71, 73, 75, 77, 79, 82, 83, 86, 89, 92, 95, 97, 105, 112, 114, 118, 122, 127, 130
 ];
+var otherBoxes=[
+    11,12,13,14,15,16,17,18,19,20,21,33,34,35,36,37,38,39,40,41,42,43
+]
 
 //other parameters=================================
 var height = 12;
@@ -47,21 +50,32 @@ function setPath() {
     }
 }
 
+function setother() {
+    for (var i = 0; i < otherBoxes.length; i++) {
+        allDiv[otherBoxes[i]].classList.add("other");
+    }
+}
+
+setother()
 allDiv[currentLocation].classList.add("runner");
 allDiv[5].classList.add("target");
 
 //runner movement =================================
 $(".body").keydown(function (event) {
-
     switch (event.key) {
         case 'ArrowLeft':
             if (width <11) {
                 width++;
-                if (width <=11) {
-                    allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation - 1].classList.add("runner");
-                    currentLocation = currentLocation - 1;
-                }
+
+                    if (width <= 11) {
+                        allDiv[currentLocation].classList.remove("runner");
+                        allDiv[currentLocation - 1].classList.add("runner");
+                        currentLocation = currentLocation - 1;
+                        if(checkIndex(currentLocation)){
+                            alert("game out")
+                        }
+                    }
+
             }
             console.log("left");
             break;
@@ -72,6 +86,9 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation +1].classList.add("runner");
                     currentLocation = currentLocation +1;
+                    if(checkIndex(currentLocation)){
+                        alert("game out")
+                    }
                 }
             }
             console.log("right");
@@ -83,6 +100,9 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation - 11].classList.add("runner");
                     currentLocation = currentLocation - 11;
+                    if(checkIndex(currentLocation)){
+                        alert("game out")
+                    }
                 }
             }
             console.log("top");
@@ -94,6 +114,9 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation + 11].classList.add("runner");
                     currentLocation = currentLocation + 11;
+                    if(checkIndex(currentLocation)){
+                        alert("game out")
+                    }
                 }
             }
             console.log("bottom");
@@ -101,7 +124,14 @@ $(".body").keydown(function (event) {
 
     }
 })
-
+function checkIndex(tempArea) {
+    console.log("ggggggggggggggggggggg___"+width)
+    for (var i=0;i<bombBox.length;i++){
+        if(tempArea===bombBox[i]){
+            return true;
+        }
+    }
+}
 //challenging item movement =================================
 function challengeMove1() {
         if(challengeBox1!==21 & challengeBox2!==22) {

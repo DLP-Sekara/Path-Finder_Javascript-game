@@ -15,7 +15,7 @@ body{
     bottom: 0;
     margin: auto;
     width: 682px;
-    border: solid 2px red;
+    border: solid 2px black;
     display: flex;
     flex-wrap: wrap;
 }
@@ -23,6 +23,10 @@ body{
     width: 60px;
     height: 50px;
 
+}
+.other{
+    border: 1px solid black;
+    background-color: darkslategrey;
 }
 .challenge{
     background: url("../img/terorist.webp");
