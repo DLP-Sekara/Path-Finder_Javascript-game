@@ -1,8 +1,10 @@
 for (var i = 0; i < 132; i++) {
     $("#grid").append("<div></div>");
 }
+
+//content areas=================================
 var challengeBox = [
-    11, 12, 13, 14
+    11, 32, 33
 ];
 var pathBox = [
     44, 46, 47, 48, 49, 51, 52, 53, 54, 56, 57, 60, 61, 62, 65, 66, 67, 69, 70, 72, 74, 76, 78, 80, 81, 84, 85, 87, 88, 90, 91, 93, 94, 96, 98, 99, 100, 101,
@@ -11,21 +13,27 @@ var pathBox = [
 var bombBox = [
     45, 50, 55, 58, 59, 63, 64, 68, 71, 73, 75, 77, 79, 82, 83, 86, 89, 92, 95, 97, 105, 112, 114, 118, 122, 127, 130
 ];
+
+//other parameters=================================
 var height = 12;
 var width = 11;
 var currentLocation = 121;
+var challengeBox1 = 11;
+var challengeBox2 = 32;
+var challengeBox3 = 33;
 const allDiv = Array.from($("#grid div"));
+var frontTimer;
+var backTimer;
 
-setTarget();
-
-function setTarget() {
+//set items and classes=================================
+setChallange();
+function setChallange() {
     for (var i = 0; i < challengeBox.length; i++) {
         allDiv[challengeBox[i]].classList.add("challenge");
     }
 }
 
 setBomb();
-
 function setBomb() {
     for (var i = 0; i < bombBox.length; i++) {
         allDiv[bombBox[i]].classList.add("bomb");
@@ -33,7 +41,6 @@ function setBomb() {
 }
 
 setPath();
-
 function setPath() {
     for (var i = 0; i < pathBox.length; i++) {
         allDiv[pathBox[i]].classList.add("path");
@@ -43,6 +50,7 @@ function setPath() {
 allDiv[currentLocation].classList.add("runner");
 allDiv[5].classList.add("target");
 
+//runner movement =================================
 $(".body").keydown(function (event) {
 
     switch (event.key) {
@@ -93,3 +101,52 @@ $(".body").keydown(function (event) {
 
     }
 })
+
+//challenging item movement =================================
+function challengeMove1() {
+        if(challengeBox1!==21 & challengeBox2!==22) {
+            allDiv[challengeBox1].classList.remove("challenge");
+            allDiv[challengeBox3].classList.remove("challenge");
+            allDiv[challengeBox2].classList.remove("challenge");
+
+            allDiv[challengeBox1 + 1].classList.add("challenge");
+            allDiv[challengeBox3 + 1].classList.add("challenge");
+            allDiv[challengeBox2 - 1].classList.add("challenge");
+
+            challengeBox1 = challengeBox1 + 1;
+            challengeBox3 = challengeBox3 + 1;
+            challengeBox2 = challengeBox2 - 1;
+
+        }else{
+            clearInterval(frontTimer)
+             backTimer=setInterval(challengeMove2,150)
+        }
+
+
+}
+function challengeMove2() {
+        if(challengeBox1!==11 & challengeBox2!==32) {
+        allDiv[challengeBox1].classList.remove("challenge");
+        allDiv[challengeBox3].classList.remove("challenge");
+        allDiv[challengeBox2].classList.remove("challenge");
+
+        allDiv[challengeBox1 - 1].classList.add("challenge");
+        allDiv[challengeBox3 - 1].classList.add("challenge");
+        allDiv[challengeBox2 + 1].classList.add("challenge");
+
+        challengeBox1=challengeBox1 - 1;
+        challengeBox3=challengeBox3 - 1;
+        challengeBox2=challengeBox2 + 1;
+    }else{
+            clearInterval(backTimer)
+           frontTimer= setInterval(challengeMove1,150)
+        }
+
+}
+
+frontTimer=setInterval(challengeMove1,150)
+
+
+
+
+
