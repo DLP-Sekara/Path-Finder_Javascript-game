@@ -3,8 +3,9 @@ body{
 }
 .main{
     position: relative;
-    height: 97vh;
+    height: 100vh;
     width: 100%;
+    background: url("../img/gameback.jpg");
 }
 #grid{
     height: 634px;
@@ -15,7 +16,7 @@ body{
     bottom: 0;
     margin: auto;
     width: 682px;
-    border: solid 2px black;
+    border: solid 2px #2c4546;
     display: flex;
     flex-wrap: wrap;
 }
@@ -25,8 +26,7 @@ body{
 
 }
 .other{
-    border: 1px solid black;
-    background-color: darkslategrey;
+    border: 1px solid #c20000;
 }
 .challenge{
     background: url("../img/terorist.webp");
@@ -45,15 +45,17 @@ body{
     border: 1px solid #f8e6c6;
 }
 .path{
-    background-color: lightseagreen;
+    background-color: #171a1f;
     border-radius: 20%;
-    border: 1px solid #f8e6c6;
+    border: 1px solid #2f4f4f;
 }
 .runner{
     background: url("../img/runner.gif");
     background-size: cover;
+    border-color: chartreuse;
 }
 .target{
     background: url("../img/flag2.gif");
     background-size: cover;
+    background-color: white;
 }
