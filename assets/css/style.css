@@ -20,6 +20,47 @@ body{
     background-color: transparent;
     margin: auto;
 }
+.exit{
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    left: 87rem;
+    top: 8rem;
+    border-radius: 20px;
+    background-color: #3b3d41;
+}
+.exit:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.exit>img{
+    position: absolute;
+    width: 7rem;
+    top: 0;
+    right: 0;
+    left: -9px;
+    bottom: 0;
+    margin: auto;
+}
+.arrows{
+    position: relative;
+    background-color: #3b3d41;
+    width: 8rem;
+    height: 8rem;
+    left: 85rem;
+    top: 31rem;
+    border-radius: 20px;
+}
+.arrows>img{
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
 .btn1:hover{
     cursor: pointer;
     border-color: white;
