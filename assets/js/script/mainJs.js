@@ -81,7 +81,6 @@ allDiv[target].classList.add("target");
 $(".body").keydown(function (event) {
     switch (event.key) {
         case 'ArrowLeft':
-            starTimer()
             if (width < 11) {
                 width++;
                 if (width <= 11) {
@@ -100,7 +99,6 @@ $(".body").keydown(function (event) {
             console.log("left");
             break;
         case 'ArrowRight':
-            starTimer()
             if (width > 0 & width !== 1) {
                 width--;
                 if (width > 0) {
@@ -118,7 +116,6 @@ $(".body").keydown(function (event) {
             console.log("right");
             break;
         case 'ArrowUp' :
-            starTimer()
             if (height > 0 & height !== 1) {
                 height--;
                 if (height > 0) {
@@ -136,7 +133,6 @@ $(".body").keydown(function (event) {
             console.log("top");
             break;
         case 'ArrowDown' :
-            starTimer()
             if (height < 12) {
                 height++;
                 if (height <= 12) {
@@ -156,11 +152,15 @@ $(".body").keydown(function (event) {
 
     }
 })
+setTimeout(starTimer,3000);
 function starTimer() {
-    var start = new Date;
-    setInterval(function() {
-        $('.timer>h1').text((new Date - start) / 1000 + " s");
-    }, 1000);
+    clearInterval(timeOut); // off the previous timer
+    timeOut = setInterval(incrementValue, 700);
+}
+let count = 1;
+function incrementValue() {
+    $(".timer>h1").text(count+ " s");
+    count++;
 }
 function checkBomb(currentLocation) {
     for (var i = 0; i < bombBox.length; i++) {

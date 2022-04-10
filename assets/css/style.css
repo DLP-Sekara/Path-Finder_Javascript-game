@@ -73,6 +73,30 @@ body{
     top: 34rem;
     color: #979ca5;
 }
+.levels{
+    position: absolute;
+    left: 17rem;
+    top: 5rem;
+    color: #979ca5;
+    font-size: 25px;
+}
+.levels>div{
+    position: relative;
+    width: 6rem;
+    height: 2rem;
+    margin-top: 23px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+.levels>div>h5{
+    position: absolute;
+    top: 4px;
+    left: 16px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 /*=================*/
 .winMsg{
     position: absolute;
