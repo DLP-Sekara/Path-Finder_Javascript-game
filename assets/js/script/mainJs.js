@@ -1,3 +1,9 @@
+$(".main").css('display','none');
+$(".btn1").click(function () {
+    $(".home").css('display','none');
+    $(".main").css('display','block');
+})
+
 for (var i = 0; i < 132; i++) {
     $("#grid").append("<div></div>");
 }

@@ -1,6 +1,30 @@
 body{
     position: relative;
 }
+.home{
+    position: relative;
+    height: 100vh;
+    background: url("../img/background.png");
+    background-size: cover;
+}
+.btn1{
+    position: absolute;
+    left: 72rem;
+    top: 2rem;
+    width: 20rem;
+    height: 4rem;
+    color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+    font-size: 46px;
+    background-color: transparent;
+    margin: auto;
+}
+.btn1:hover{
+    cursor: pointer;
+    border-color: white;
+    color: white;
+}
 .main{
     position: relative;
     height: 100vh;
