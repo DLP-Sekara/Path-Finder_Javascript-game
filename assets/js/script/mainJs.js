@@ -16,7 +16,7 @@ var bombBox = [
 var otherBoxes = [
     11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43
 ]
-
+var target=5;
 //other parameters=================================
 var height = 12;
 var width = 11;
@@ -62,7 +62,7 @@ function setother() {
 }
 
 allDiv[currentLocation].classList.add("runner");
-allDiv[5].classList.add("target");
+allDiv[target].classList.add("target");
 
 //runner movement =================================
 $(".body").keydown(function (event) {
@@ -70,13 +70,15 @@ $(".body").keydown(function (event) {
         case 'ArrowLeft':
             if (width < 11) {
                 width++;
-
                 if (width <= 11) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation - 1].classList.add("runner");
                     currentLocation = currentLocation - 1;
                     if (checkBomb(currentLocation)) {
                         alert("game out")
+                    }
+                    if (checkTarget(currentLocation)) {
+                        alert("you win")
                     }
                 }
 
@@ -93,6 +95,9 @@ $(".body").keydown(function (event) {
                     if (checkBomb(currentLocation)) {
                         alert("game out")
                     }
+                    if (checkTarget(currentLocation)) {
+                        alert("you win")
+                    }
                 }
             }
             console.log("right");
@@ -106,6 +111,9 @@ $(".body").keydown(function (event) {
                     currentLocation = currentLocation - 11;
                     if (checkBomb(currentLocation)) {
                         alert("game out")
+                    }
+                    if (checkTarget(currentLocation)) {
+                        alert("you win")
                     }
                 }
             }
@@ -121,6 +129,9 @@ $(".body").keydown(function (event) {
                     if (checkBomb(currentLocation)) {
                         alert("game out")
                     }
+                    if (checkTarget(currentLocation)) {
+                        alert("you win")
+                    }
                 }
             }
             console.log("bottom");
@@ -129,12 +140,19 @@ $(".body").keydown(function (event) {
     }
 })
 
-function checkBomb(tempArea) {
+function checkBomb(currentLocation) {
     for (var i = 0; i < bombBox.length; i++) {
-        if (tempArea === bombBox[i]) {
+        if (currentLocation === bombBox[i]) {
             return true;
         }
     }
+}
+function checkTarget(currentLocation) {
+    console.log(currentLocation)
+        if (currentLocation === target) {
+            return true;
+        }
+
 }
 
 //challenging item movement =================================
