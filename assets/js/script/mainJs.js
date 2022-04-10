@@ -13,8 +13,8 @@ var pathBox = [
 var bombBox = [
     45, 50, 55, 58, 59, 63, 64, 68, 71, 73, 75, 77, 79, 82, 83, 86, 89, 92, 95, 97, 105, 112, 114, 118, 122, 127, 130
 ];
-var otherBoxes=[
-    11,12,13,14,15,16,17,18,19,20,21,33,34,35,36,37,38,39,40,41,42,43
+var otherBoxes = [
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43
 ]
 
 //other parameters=================================
@@ -30,6 +30,7 @@ var backTimer;
 
 //set items and classes=================================
 setChallange();
+
 function setChallange() {
     for (var i = 0; i < challengeBox.length; i++) {
         allDiv[challengeBox[i]].classList.add("challenge");
@@ -37,6 +38,7 @@ function setChallange() {
 }
 
 setBomb();
+
 function setBomb() {
     for (var i = 0; i < bombBox.length; i++) {
         allDiv[bombBox[i]].classList.add("bomb");
@@ -44,11 +46,14 @@ function setBomb() {
 }
 
 setPath();
+
 function setPath() {
     for (var i = 0; i < pathBox.length; i++) {
         allDiv[pathBox[i]].classList.add("path");
     }
 }
+
+setother()
 
 function setother() {
     for (var i = 0; i < otherBoxes.length; i++) {
@@ -56,7 +61,6 @@ function setother() {
     }
 }
 
-setother()
 allDiv[currentLocation].classList.add("runner");
 allDiv[5].classList.add("target");
 
@@ -64,17 +68,17 @@ allDiv[5].classList.add("target");
 $(".body").keydown(function (event) {
     switch (event.key) {
         case 'ArrowLeft':
-            if (width <11) {
+            if (width < 11) {
                 width++;
 
-                    if (width <= 11) {
-                        allDiv[currentLocation].classList.remove("runner");
-                        allDiv[currentLocation - 1].classList.add("runner");
-                        currentLocation = currentLocation - 1;
-                        if(checkIndex(currentLocation)){
-                            alert("game out")
-                        }
+                if (width <= 11) {
+                    allDiv[currentLocation].classList.remove("runner");
+                    allDiv[currentLocation - 1].classList.add("runner");
+                    currentLocation = currentLocation - 1;
+                    if (checkBomb(currentLocation)) {
+                        alert("game out")
                     }
+                }
 
             }
             console.log("left");
@@ -84,9 +88,9 @@ $(".body").keydown(function (event) {
                 width--;
                 if (width > 0) {
                     allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation +1].classList.add("runner");
-                    currentLocation = currentLocation +1;
-                    if(checkIndex(currentLocation)){
+                    allDiv[currentLocation + 1].classList.add("runner");
+                    currentLocation = currentLocation + 1;
+                    if (checkBomb(currentLocation)) {
                         alert("game out")
                     }
                 }
@@ -100,7 +104,7 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation - 11].classList.add("runner");
                     currentLocation = currentLocation - 11;
-                    if(checkIndex(currentLocation)){
+                    if (checkBomb(currentLocation)) {
                         alert("game out")
                     }
                 }
@@ -114,7 +118,7 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation].classList.remove("runner");
                     allDiv[currentLocation + 11].classList.add("runner");
                     currentLocation = currentLocation + 11;
-                    if(checkIndex(currentLocation)){
+                    if (checkBomb(currentLocation)) {
                         alert("game out")
                     }
                 }
@@ -124,38 +128,44 @@ $(".body").keydown(function (event) {
 
     }
 })
-function checkIndex(tempArea) {
-    console.log("ggggggggggggggggggggg___"+width)
-    for (var i=0;i<bombBox.length;i++){
-        if(tempArea===bombBox[i]){
+
+function checkBomb(tempArea) {
+    for (var i = 0; i < bombBox.length; i++) {
+        if (tempArea === bombBox[i]) {
             return true;
         }
     }
 }
+
 //challenging item movement =================================
 function challengeMove1() {
-        if(challengeBox1!==21 & challengeBox2!==22) {
-            allDiv[challengeBox1].classList.remove("challenge");
-            allDiv[challengeBox3].classList.remove("challenge");
-            allDiv[challengeBox2].classList.remove("challenge");
+    if (challengeBox1 !== 21 & challengeBox2 !== 22) {
+        allDiv[challengeBox1].classList.remove("challenge");
+        allDiv[challengeBox3].classList.remove("challenge");
+        allDiv[challengeBox2].classList.remove("challenge");
 
-            allDiv[challengeBox1 + 1].classList.add("challenge");
-            allDiv[challengeBox3 + 1].classList.add("challenge");
-            allDiv[challengeBox2 - 1].classList.add("challenge");
+        allDiv[challengeBox1 + 1].classList.add("challenge");
+        allDiv[challengeBox3 + 1].classList.add("challenge");
+        allDiv[challengeBox2 - 1].classList.add("challenge");
 
-            challengeBox1 = challengeBox1 + 1;
-            challengeBox3 = challengeBox3 + 1;
-            challengeBox2 = challengeBox2 - 1;
+        challengeBox1 = challengeBox1 + 1;
+        challengeBox3 = challengeBox3 + 1;
+        challengeBox2 = challengeBox2 - 1;
 
-        }else{
-            clearInterval(frontTimer)
-             backTimer=setInterval(challengeMove2,150)
+        if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
+            alert("game out")
         }
+
+    } else {
+        clearInterval(frontTimer)
+        backTimer = setInterval(challengeMove2, 150)
+    }
 
 
 }
+
 function challengeMove2() {
-        if(challengeBox1!==11 & challengeBox2!==32) {
+    if (challengeBox1 !== 11 & challengeBox2 !== 32) {
         allDiv[challengeBox1].classList.remove("challenge");
         allDiv[challengeBox3].classList.remove("challenge");
         allDiv[challengeBox2].classList.remove("challenge");
@@ -164,17 +174,27 @@ function challengeMove2() {
         allDiv[challengeBox3 - 1].classList.add("challenge");
         allDiv[challengeBox2 + 1].classList.add("challenge");
 
-        challengeBox1=challengeBox1 - 1;
-        challengeBox3=challengeBox3 - 1;
-        challengeBox2=challengeBox2 + 1;
-    }else{
-            clearInterval(backTimer)
-           frontTimer= setInterval(challengeMove1,150)
+        challengeBox1 = challengeBox1 - 1;
+        challengeBox3 = challengeBox3 - 1;
+        challengeBox2 = challengeBox2 + 1;
+        if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
+            alert("game out")
+        }
+    } else {
+        clearInterval(backTimer)
+        frontTimer = setInterval(challengeMove1, 150)
+    }
+
+}
+
+function checkRunner(challengeBox1, challengeBox3, challengeBox2) {
+        if (currentLocation === challengeBox1 | currentLocation===challengeBox2 | currentLocation===challengeBox3) {
+            return true;
         }
 
 }
 
-frontTimer=setInterval(challengeMove1,150)
+frontTimer = setInterval(challengeMove1, 150)
 
 
 
