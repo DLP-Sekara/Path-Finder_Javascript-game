@@ -5,6 +5,9 @@ $(".blast").css('display','none');
 $(".btn1").click(function () {
     $(".home").css('display','none');
     $(".main").css('display','block');
+    $(".level1").css('background-color','green');
+    $(".level1").css('color','white');
+
 })
 $(".exit").click(function () {
     $(".home").css('display','block');
@@ -91,6 +94,11 @@ $(".body").keydown(function (event) {
                         $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
+                      /*  $(".level1").css('background-color','none');
+                        $(".level1").css('color','#979ca5');
+
+                        $(".level2").css('background-color','green');
+                        $(".level2").css('color','white');*/
                         $(".winMsg").css('display','block');
                     }
                 }

@@ -44,7 +44,7 @@ body{
     margin: auto;
 }
 .arrows{
-    position: relative;
+    position: absolute;
     background-color: #3b3d41;
     width: 8rem;
     height: 8rem;
@@ -68,33 +68,76 @@ body{
     color: white;
 }
 .timer{
+    width: 17px;
+    height: 200px;
+    position: relative;
+    left: -28rem;
+    top: 30rem;
+    z-index: 1;
+    margin: auto;
+    border-radius: 8px;
+    border: solid 2px red;
+    display: flex;
+    flex-wrap: wrap;
+}
+.innerTimer{
+    width: 13px;
     position: absolute;
-    left: 16rem;
-    top: 34rem;
-    color: #979ca5;
+    left: -1px;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 8px;
+    background-color: green;
+    animation: animate;
+    animation-duration: 15s;
+    animation-delay: 3s;
+}
+@keyframes animate {
+    0%,10%{
+        height: 200px;
+    }10%,20%{
+          height: 180px;
+     }20%,30%{
+           height: 160px;
+      }30%,40%{
+           height: 140px;
+       }40%,50%{
+            height: 120px;
+        }50%,60%{
+             height: 100px;
+         }60%,70%{
+              height: 80px;
+          }70%,80%{
+               height: 60px;
+           }80%,90%{
+                height: 40px;
+            }90%,100%{
+                 height: 1px;
+             }
 }
 .levels{
-    position: absolute;
-    left: 17rem;
-    top: 5rem;
-    color: #979ca5;
-    font-size: 25px;
+position: absolute;
+left: 17rem;
+top: 5rem;
+color: #979ca5;
+font-size: 25px;
 }
 .levels>div{
-    position: relative;
-    width: 6rem;
-    height: 2rem;
-    margin-top: 23px;
-    border: 1px solid green;
-    border-radius: 5px;
+position: relative;
+width: 6rem;
+height: 2rem;
+margin-top: 23px;
+border: 1px solid green;
+border-radius: 5px;
 }
 .levels>div>h5{
-    position: absolute;
-    top: 4px;
-    left: 16px;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+position: absolute;
+top: 4px;
+left: 16px;
+right: 0;
+bottom: 0;
+margin: auto;
 }
 
 /*=================*/
@@ -183,7 +226,6 @@ body{
 #grid div{
     width: 60px;
     height: 50px;
-
 }
 .other{
     border: 1px solid #c20000;
