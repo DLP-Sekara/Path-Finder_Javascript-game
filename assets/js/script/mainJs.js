@@ -1,4 +1,7 @@
 $(".main").css('display','none');
+$(".winMsg").css('display','none');
+$(".blast").css('display','none');
+
 $(".btn1").click(function () {
     $(".home").css('display','none');
     $(".main").css('display','block');
@@ -37,7 +40,7 @@ var challengeBox3 = 33;
 const allDiv = Array.from($("#grid div"));
 var frontTimer;
 var backTimer;
-
+var timeOut;
 //set items and classes=================================
 setChallange();
 
@@ -78,6 +81,7 @@ allDiv[target].classList.add("target");
 $(".body").keydown(function (event) {
     switch (event.key) {
         case 'ArrowLeft':
+            starTimer()
             if (width < 11) {
                 width++;
                 if (width <= 11) {
@@ -85,10 +89,10 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation - 1].classList.add("runner");
                     currentLocation = currentLocation - 1;
                     if (checkBomb(currentLocation)) {
-                        alert("game out")
+                        $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
-                        alert("you win")
+                        $(".winMsg").css('display','block');
                     }
                 }
 
@@ -96,6 +100,7 @@ $(".body").keydown(function (event) {
             console.log("left");
             break;
         case 'ArrowRight':
+            starTimer()
             if (width > 0 & width !== 1) {
                 width--;
                 if (width > 0) {
@@ -103,16 +108,17 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation + 1].classList.add("runner");
                     currentLocation = currentLocation + 1;
                     if (checkBomb(currentLocation)) {
-                        alert("game out")
+                        $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
-                        alert("you win")
+                        $(".winMsg").css('display','block');
                     }
                 }
             }
             console.log("right");
             break;
         case 'ArrowUp' :
+            starTimer()
             if (height > 0 & height !== 1) {
                 height--;
                 if (height > 0) {
@@ -120,16 +126,17 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation - 11].classList.add("runner");
                     currentLocation = currentLocation - 11;
                     if (checkBomb(currentLocation)) {
-                        alert("game out")
+                        $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
-                        alert("you win")
+                        $(".winMsg").css('display','block');
                     }
                 }
             }
             console.log("top");
             break;
         case 'ArrowDown' :
+            starTimer()
             if (height < 12) {
                 height++;
                 if (height <= 12) {
@@ -137,10 +144,10 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation + 11].classList.add("runner");
                     currentLocation = currentLocation + 11;
                     if (checkBomb(currentLocation)) {
-                        alert("game out")
+                        $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
-                        alert("you win")
+                        $(".winMsg").css('display','block');
                     }
                 }
             }
@@ -149,7 +156,12 @@ $(".body").keydown(function (event) {
 
     }
 })
-
+function starTimer() {
+    var start = new Date;
+    setInterval(function() {
+        $('.timer>h1').text((new Date - start) / 1000 + " s");
+    }, 1000);
+}
 function checkBomb(currentLocation) {
     for (var i = 0; i < bombBox.length; i++) {
         if (currentLocation === bombBox[i]) {
@@ -165,6 +177,24 @@ function checkTarget(currentLocation) {
 
 }
 
+$("#retryBtn").click(function () {
+    $(".blast").css('display','none');
+    allDiv[currentLocation].classList.remove("runner");
+    currentLocation=121
+    height=12;
+    width=11;
+    allDiv[currentLocation ].classList.add("runner");
+
+})
+$("#newGameBtn").click(function () {
+    $(".winMsg").css('display','none');
+    allDiv[currentLocation].classList.remove("runner");
+    currentLocation=121
+    height=12;
+    width=11;
+    allDiv[currentLocation ].classList.add("runner");
+
+})
 //challenging item movement =================================
 function challengeMove1() {
     if (challengeBox1 !== 21 & challengeBox2 !== 22) {
@@ -181,7 +211,7 @@ function challengeMove1() {
         challengeBox2 = challengeBox2 - 1;
 
         if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
-            alert("game out")
+            $(".blast").css('display','block');
         }
 
     } else {
@@ -206,7 +236,7 @@ function challengeMove2() {
         challengeBox3 = challengeBox3 - 1;
         challengeBox2 = challengeBox2 + 1;
         if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
-            alert("game out")
+            $(".blast").css('display','block');
         }
     } else {
         clearInterval(backTimer)

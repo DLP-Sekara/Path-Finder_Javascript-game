@@ -20,6 +20,7 @@ body{
     background-color: transparent;
     margin: auto;
 }
+/*=================*/
 .exit{
     position: absolute;
     width: 6rem;
@@ -66,6 +67,76 @@ body{
     border-color: white;
     color: white;
 }
+.timer{
+    position: absolute;
+    left: 16rem;
+    top: 34rem;
+    color: #979ca5;
+}
+/*=================*/
+.winMsg{
+    position: absolute;
+    width: 40rem;
+    height: 17rem;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #1b1e25;
+}
+.innerBorder{
+    position: absolute;
+    width: 37rem;
+    height: 14rem;
+    border: 5px solid red;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: red;
+}
+.innerBorder>h1{
+    display: inline;
+    position: absolute;
+    left: 12rem;
+    right: 0;
+    top: 1rem;
+    bottom: 0;
+    font-size: 100px;
+    margin: auto;
+}
+.innerBorder>h2{
+    display: inline;
+    position: absolute;
+    left: 14rem;
+    right: 0;
+    top: 10rem;
+    bottom: 0;
+    color: white;
+    font-size: 40px;
+    margin: auto;
+}
+.innerBorder>h2:hover{
+    cursor: pointer;
+    color: greenyellow;
+}
+.blast{
+    position: absolute;
+    width: 40rem;
+    height: 17rem;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #1b1e25;
+}
+/*=================*/
 .main{
     position: relative;
     height: 100vh;

@@ -7,14 +7,32 @@
     <link rel="stylesheet" href="assets/normalize.css">
 </head>
 <body class="body">
+<!--home-->
 <div class="home">
     <button class="btn1">START</button>
 </div>
 
+<!--grid-->
 <div class="main">
         <div class="exit"><img src="assets/img/homebtn.gif" alt=""></div>
         <div class="arrows"><img src="assets/img/arrows.png" alt=""></div>
-<div id="grid"></div>
+        <div class="timer"><h1>00.00</h1></div>
+    <div id="grid"></div>
+
+    <div class="winMsg">
+        <div class="innerBorder">
+            <h1>WIN</h1>
+            <h2 id="newGameBtn">New game</h2>
+        </div>
+    </div>
+    <div class="blast">
+        <div class="innerBorder">
+            <h1>OUT</h1>
+            <h2 id="retryBtn">Retry</h2>
+        </div>
+    </div>
+
+
 </div>
 <script src="assets/js/JQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/js/script/mainJs.js"></script>
