@@ -80,8 +80,16 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+.timer>h1{
+    position: absolute;
+    left: -5rem;
+    width: 6rem;
+    color: #65e91e;
+    top: 9rem;
+}
 .innerTimer{
     width: 13px;
+    height: 200px;
     position: absolute;
     left: -1px;
     bottom: 0;
@@ -89,9 +97,9 @@ body{
     margin: auto;
     border-radius: 8px;
     background-color: green;
-    animation: animate;
-    animation-duration: 15s;
-    animation-delay: 3s;
+    /*animation: animate;
+    animation-duration: 20s;
+    animation-delay: 3s;*/
 }
 @keyframes animate {
     0%,10%{
@@ -192,6 +200,18 @@ margin: auto;
     color: greenyellow;
 }
 .blast{
+    position: absolute;
+    width: 40rem;
+    height: 17rem;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #1b1e25;
+}
+.timeOut{
     position: absolute;
     width: 40rem;
     height: 17rem;

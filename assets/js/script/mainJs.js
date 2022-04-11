@@ -1,10 +1,12 @@
 $(".main").css('display','none');
 $(".winMsg").css('display','none');
 $(".blast").css('display','none');
+$(".timeOut").css('display','none');
 
 $(".btn1").click(function () {
     $(".home").css('display','none');
     $(".main").css('display','block');
+    $(".level1").css('background-color','green');
     $(".level1").css('background-color','green');
     $(".level1").css('color','white');
 
@@ -91,6 +93,8 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation - 1].classList.add("runner");
                     currentLocation = currentLocation - 1;
                     if (checkBomb(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
@@ -99,6 +103,8 @@ $(".body").keydown(function (event) {
 
                         $(".level2").css('background-color','green');
                         $(".level2").css('color','white');*/
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".winMsg").css('display','block');
                     }
                 }
@@ -114,9 +120,13 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation + 1].classList.add("runner");
                     currentLocation = currentLocation + 1;
                     if (checkBomb(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".winMsg").css('display','block');
                     }
                 }
@@ -131,9 +141,13 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation - 11].classList.add("runner");
                     currentLocation = currentLocation - 11;
                     if (checkBomb(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".winMsg").css('display','block');
                     }
                 }
@@ -148,9 +162,13 @@ $(".body").keydown(function (event) {
                     allDiv[currentLocation + 11].classList.add("runner");
                     currentLocation = currentLocation + 11;
                     if (checkBomb(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".blast").css('display','block');
                     }
                     if (checkTarget(currentLocation)) {
+                        clearInterval(timeOut);
+                        $(".innerTimer").stop(true);
                         $(".winMsg").css('display','block');
                     }
                 }
@@ -163,13 +181,21 @@ $(".body").keydown(function (event) {
 setTimeout(starTimer,3000);
 function starTimer() {
     clearInterval(timeOut); // off the previous timer
-    timeOut = setInterval(incrementValue, 700);
+    timeOut = setInterval(incrementValue, 900);
 }
-let count = 1;
+let count = 20;
 function incrementValue() {
     $(".timer>h1").text(count+ " s");
-    count++;
+    count--;
+    if(count===-1){
+        clearInterval(timeOut)
+    }
+    if(count===-1){
+        $(".timeOut").css('display','block');
+    }
 }
+$(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
+
 function checkBomb(currentLocation) {
     for (var i = 0; i < bombBox.length; i++) {
         if (currentLocation === bombBox[i]) {
@@ -185,9 +211,15 @@ function checkTarget(currentLocation) {
 
 }
 
-$("#retryBtn").click(function () {
+$(".retryBtn").click(function () {
     $(".blast").css('display','none');
+    $(".timeOut").css('display','none');
     allDiv[currentLocation].classList.remove("runner");
+    count = 20;
+    $(".timer>h1").text("00 s");
+    setTimeout(starTimer,3000);
+    $(".innerTimer").css('height','200px');
+    $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
     currentLocation=121
     height=12;
     width=11;
@@ -197,6 +229,11 @@ $("#retryBtn").click(function () {
 $("#newGameBtn").click(function () {
     $(".winMsg").css('display','none');
     allDiv[currentLocation].classList.remove("runner");
+    count = 20;
+    $(".timer>h1").text("00 s");
+    setTimeout(starTimer,3000);
+    $(".innerTimer").css('height','200px');
+    $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
     currentLocation=121
     height=12;
     width=11;
