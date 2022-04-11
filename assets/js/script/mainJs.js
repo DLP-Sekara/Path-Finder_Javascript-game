@@ -46,6 +46,11 @@ const allDiv = Array.from($("#grid div"));
 var frontTimer;
 var backTimer;
 var timeOut;
+var tempTimingCount;
+var startingCount;
+
+
+
 //set items and classes=================================
 setChallange();
 
@@ -82,102 +87,108 @@ function setother() {
 allDiv[currentLocation].classList.add("runner");
 allDiv[target].classList.add("target");
 
+
+
 //runner movement =================================
+
 $(".body").keydown(function (event) {
-    switch (event.key) {
-        case 'ArrowLeft':
-            if (width < 11) {
-                width++;
-                if (width <= 11) {
-                    allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation - 1].classList.add("runner");
-                    currentLocation = currentLocation - 1;
-                    if (checkBomb(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".blast").css('display','block');
-                    }
-                    if (checkTarget(currentLocation)) {
-                      /*  $(".level1").css('background-color','none');
-                        $(".level1").css('color','#979ca5');
+    if(tempTimingCount===20) {
+        switch (event.key) {
+            case 'ArrowLeft':
+                if (width < 11) {
+                    width++;
+                    if (width <= 11) {
+                        allDiv[currentLocation].classList.remove("runner");
+                        allDiv[currentLocation - 1].classList.add("runner");
+                        currentLocation = currentLocation - 1;
+                        if (checkBomb(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".blast").css('display', 'block');
+                        }
+                        if (checkTarget(currentLocation)) {
+                            /*  $(".level1").css('background-color','none');
+                              $(".level1").css('color','#979ca5');
 
-                        $(".level2").css('background-color','green');
-                        $(".level2").css('color','white');*/
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".winMsg").css('display','block');
+                              $(".level2").css('background-color','green');
+                              $(".level2").css('color','white');*/
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".winMsg").css('display', 'block');
+                        }
                     }
-                }
 
-            }
-            console.log("left");
-            break;
-        case 'ArrowRight':
-            if (width > 0 & width !== 1) {
-                width--;
-                if (width > 0) {
-                    allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation + 1].classList.add("runner");
-                    currentLocation = currentLocation + 1;
-                    if (checkBomb(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".blast").css('display','block');
-                    }
-                    if (checkTarget(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".winMsg").css('display','block');
+                }
+                console.log("left");
+                break;
+            case 'ArrowRight':
+                if (width > 0 & width !== 1) {
+                    width--;
+                    if (width > 0) {
+                        allDiv[currentLocation].classList.remove("runner");
+                        allDiv[currentLocation + 1].classList.add("runner");
+                        currentLocation = currentLocation + 1;
+                        if (checkBomb(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".blast").css('display', 'block');
+                        }
+                        if (checkTarget(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".winMsg").css('display', 'block');
+                        }
                     }
                 }
-            }
-            console.log("right");
-            break;
-        case 'ArrowUp' :
-            if (height > 0 & height !== 1) {
-                height--;
-                if (height > 0) {
-                    allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation - 11].classList.add("runner");
-                    currentLocation = currentLocation - 11;
-                    if (checkBomb(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".blast").css('display','block');
-                    }
-                    if (checkTarget(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".winMsg").css('display','block');
-                    }
-                }
-            }
-            console.log("top");
-            break;
-        case 'ArrowDown' :
-            if (height < 12) {
-                height++;
-                if (height <= 12) {
-                    allDiv[currentLocation].classList.remove("runner");
-                    allDiv[currentLocation + 11].classList.add("runner");
-                    currentLocation = currentLocation + 11;
-                    if (checkBomb(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".blast").css('display','block');
-                    }
-                    if (checkTarget(currentLocation)) {
-                        clearInterval(timeOut);
-                        $(".innerTimer").stop(true);
-                        $(".winMsg").css('display','block');
+                console.log("right");
+                break;
+            case 'ArrowUp' :
+                if (height > 0 & height !== 1) {
+                    height--;
+                    if (height > 0) {
+                        allDiv[currentLocation].classList.remove("runner");
+                        allDiv[currentLocation - 11].classList.add("runner");
+                        currentLocation = currentLocation - 11;
+                        if (checkBomb(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".blast").css('display', 'block');
+                        }
+                        if (checkTarget(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".winMsg").css('display', 'block');
+                        }
                     }
                 }
-            }
-            console.log("bottom");
-            break;
+                console.log("top");
+                break;
+            case 'ArrowDown' :
+                if (height < 12) {
+                    height++;
+                    if (height <= 12) {
+                        allDiv[currentLocation].classList.remove("runner");
+                        allDiv[currentLocation + 11].classList.add("runner");
+                        currentLocation = currentLocation + 11;
+                        if (checkBomb(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".blast").css('display', 'block');
+                        }
+                        if (checkTarget(currentLocation)) {
+                            clearInterval(timeOut);
+                            $(".innerTimer").stop(true);
+                            $(".winMsg").css('display', 'block');
+                        }
+                    }
+                }
+                console.log("bottom");
+                break;
 
+        }
     }
 })
+
 setTimeout(starTimer,3000);
 function starTimer() {
     clearInterval(timeOut); // off the previous timer
@@ -195,6 +206,25 @@ function incrementValue() {
     }
 }
 $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
+
+//setInterval(makeCount,1000);
+makeCount();
+function makeCount() {
+    clearInterval(startingCount); // off the previous timer
+    startingCount = setInterval(incrementCount, 900);
+}
+var tempCount=3
+function incrementCount() {
+    $(".goIndicator").text(tempCount);
+    tempCount--;
+    if(tempCount===-1){
+        clearInterval(startingCount)
+        tempTimingCount=20;
+        $(".goIndicator").text("Go..");
+        $(".goIndicator").css('color','red');
+    }
+
+}
 
 function checkBomb(currentLocation) {
     for (var i = 0; i < bombBox.length; i++) {
@@ -220,6 +250,12 @@ $(".retryBtn").click(function () {
     setTimeout(starTimer,3000);
     $(".innerTimer").css('height','200px');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
+
+    tempCount=3
+    $(".goIndicator").text("Ready..");
+    makeCount()
+    tempTimingCount=0;
+
     currentLocation=121
     height=12;
     width=11;
@@ -234,13 +270,23 @@ $("#newGameBtn").click(function () {
     setTimeout(starTimer,3000);
     $(".innerTimer").css('height','200px');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
+
+    tempCount=3
+    $(".goIndicator").text("Ready..");
+    makeCount()
+    tempTimingCount=0;
+
     currentLocation=121
     height=12;
     width=11;
     allDiv[currentLocation ].classList.add("runner");
 
 })
+
+
+
 //challenging item movement =================================
+
 function challengeMove1() {
     if (challengeBox1 !== 21 & challengeBox2 !== 22) {
         allDiv[challengeBox1].classList.remove("challenge");
@@ -257,6 +303,8 @@ function challengeMove1() {
 
         if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
             $(".blast").css('display','block');
+            clearInterval(timeOut);
+            $(".innerTimer").stop(true);
         }
 
     } else {
@@ -282,6 +330,8 @@ function challengeMove2() {
         challengeBox2 = challengeBox2 + 1;
         if (checkRunner(challengeBox1, challengeBox3, challengeBox2)) {
             $(".blast").css('display','block');
+            clearInterval(timeOut);
+            $(".innerTimer").stop(true);
         }
     } else {
         clearInterval(backTimer)

@@ -147,7 +147,13 @@ right: 0;
 bottom: 0;
 margin: auto;
 }
-
+.goIndicator{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 11rem;
+    top: 34rem;
+}
 /*=================*/
 .winMsg{
     position: absolute;
