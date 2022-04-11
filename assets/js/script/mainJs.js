@@ -1,3 +1,12 @@
+$(function () {
+    $(".home").css('display','none')
+});
+$(window).on('load',function() {
+    $(".home").css('display','block')
+    $(".load").css('display','none')
+    $(".load>img").fadeOut(1000)
+});
+
 $(".main").css('display','none');
 $(".winMsg").css('display','none');
 $(".blast").css('display','none');
