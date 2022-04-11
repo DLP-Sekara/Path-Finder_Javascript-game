@@ -11,18 +11,21 @@ $(".main").css('display','none');
 $(".winMsg").css('display','none');
 $(".blast").css('display','none');
 $(".timeOut").css('display','none');
-
+var audio ;
 $(".btn1").click(function () {
     $(".home").css('display','none');
     $(".main").css('display','block');
-    $(".level1").css('background-color','green');
-    $(".level1").css('background-color','green');
+    $(".level1").css('background-color',"green");
     $(".level1").css('color','white');
-
+    audio = $("#audio")[0];
+    audio.play();
 })
 $(".exit").click(function () {
     $(".home").css('display','block');
     $(".main").css('display','none');
+
+    audio.pause();
+    audio.currentTime = 0;
 })
 
 for (var i = 0; i < 132; i++) {
