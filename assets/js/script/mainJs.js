@@ -19,6 +19,9 @@ $(".btn1").click(function () {
     $(".level1").css('color','white');
     audio = $("#audio")[0];
     audio.play();
+
+    restartInRetry();
+    restartInNewGame()
 })
 $(".exit").click(function () {
     $(".home").css('display','block');
@@ -254,6 +257,10 @@ function checkTarget(currentLocation) {
 }
 
 $(".retryBtn").click(function () {
+    restartInRetry();
+
+})
+function restartInRetry() {
     $(".blast").css('display','none');
     $(".timeOut").css('display','none');
     allDiv[currentLocation].classList.remove("runner");
@@ -272,9 +279,11 @@ $(".retryBtn").click(function () {
     height=12;
     width=11;
     allDiv[currentLocation ].classList.add("runner");
-
-})
+}
 $("#newGameBtn").click(function () {
+    restartInNewGame()
+})
+function restartInNewGame() {
     $(".winMsg").css('display','none');
     allDiv[currentLocation].classList.remove("runner");
     count = 20;
@@ -292,9 +301,7 @@ $("#newGameBtn").click(function () {
     height=12;
     width=11;
     allDiv[currentLocation ].classList.add("runner");
-
-})
-
+}
 
 
 //challenging item movement =================================
