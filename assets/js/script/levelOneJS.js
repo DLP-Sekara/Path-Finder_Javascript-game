@@ -250,9 +250,9 @@ function checkBomb(currentLocation) {
 }
 function checkTarget(currentLocation) {
     console.log(currentLocation)
-        if (currentLocation === target) {
-            return true;
-        }
+    if (currentLocation === target) {
+        return true;
+    }
 
 }
 
@@ -360,9 +360,9 @@ function challengeMove2() {
 }
 
 function checkRunner(challengeBox1, challengeBox3, challengeBox2) {
-        if (currentLocation === challengeBox1 | currentLocation===challengeBox2 | currentLocation===challengeBox3) {
-            return true;
-        }
+    if (currentLocation === challengeBox1 | currentLocation===challengeBox2 | currentLocation===challengeBox3) {
+        return true;
+    }
 
 }
 

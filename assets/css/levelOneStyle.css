@@ -121,9 +121,9 @@ body{
     0%,10%{
         height: 200px;
     }10%,20%{
-          height: 180px;
+         height: 180px;
      }20%,30%{
-           height: 160px;
+          height: 160px;
       }30%,40%{
            height: 140px;
        }40%,50%{
@@ -141,27 +141,27 @@ body{
              }
 }
 .levels{
-position: absolute;
-left: 17rem;
-top: 5rem;
-color: #979ca5;
-font-size: 25px;
+    position: absolute;
+    left: 17rem;
+    top: 5rem;
+    color: #979ca5;
+    font-size: 25px;
 }
 .levels>div{
-position: relative;
-width: 6rem;
-height: 2rem;
-margin-top: 23px;
-border: 1px solid green;
-border-radius: 5px;
+    position: relative;
+    width: 6rem;
+    height: 2rem;
+    margin-top: 23px;
+    border: 1px solid green;
+    border-radius: 5px;
 }
 .levels>div>h5{
-position: absolute;
-top: 4px;
-left: 16px;
-right: 0;
-bottom: 0;
-margin: auto;
+    position: absolute;
+    top: 4px;
+    left: 16px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 .goIndicator{
     color: white;
