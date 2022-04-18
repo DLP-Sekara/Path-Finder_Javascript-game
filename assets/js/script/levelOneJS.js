@@ -220,7 +220,7 @@ function incrementValue() {
         $(".timeOut").css('display','block');
     }
 }
-$(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
+$(".innerTimer").delay(3100).animate({"height":"0%"},20000,);
 
 //setInterval(makeCount,1000);
 makeCount();
@@ -267,7 +267,7 @@ function restartInRetry() {
     count = 20;
     $(".timer>h1").text("00 s");
     setTimeout(starTimer,3000);
-    $(".innerTimer").css('height','200px');
+    $(".innerTimer").css('height','27.5%');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
 
     tempCount=3
@@ -289,7 +289,7 @@ function restartInNewGame() {
     count = 20;
     $(".timer>h1").text("00 s");
     setTimeout(starTimer,3000);
-    $(".innerTimer").css('height','200px');
+    $(".innerTimer").css('height','27.5%');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
 
     tempCount=3

@@ -12,7 +12,7 @@
     bottom: 0;
     margin: auto;
 }
-/*================*/
+/*========home========*/
 body{
     position: relative;
     overflow: hidden;
@@ -25,10 +25,10 @@ body{
 }
 .btn1{
     position: absolute;
-    left: 72rem;
-    top: 2rem;
-    width: 20rem;
-    height: 4rem;
+    left: 78%;
+    top: 5%;
+    width: 19%;
+    height: 9%;
     color: red;
     border: 2px solid red;
     border-radius: 10px;
@@ -36,13 +36,14 @@ body{
     background-color: transparent;
     margin: auto;
 }
+
 /*=================*/
 .exit{
     position: absolute;
-    width: 6rem;
-    height: 6rem;
-    left: 87rem;
-    top: 8rem;
+    width: 7%;
+    height: 16%;
+    left: 90%;
+    top: 17%;
     border-radius: 20px;
     background-color: #3b3d41;
 }
@@ -52,7 +53,7 @@ body{
 }
 .exit>img{
     position: absolute;
-    width: 7rem;
+    width: 121%;
     top: 0;
     right: 0;
     left: -9px;
@@ -62,10 +63,11 @@ body{
 .arrows{
     position: absolute;
     background-color: #3b3d41;
-    width: 8rem;
-    height: 8rem;
-    left: 85rem;
-    top: 31rem;
+    width: 9%;
+    height: 17%;
+    left: 89%;
+    top: 69%;
+
     border-radius: 20px;
 }
 .arrows>img{
@@ -84,11 +86,11 @@ body{
     color: white;
 }
 .timer{
-    width: 17px;
-    height: 200px;
+    width: 1%;
+    height: 27.5%;
     position: relative;
-    left: -28rem;
-    top: 30rem;
+    left: -29%;
+    top: 65%;
     z-index: 1;
     margin: auto;
     border-radius: 8px;
@@ -105,7 +107,7 @@ body{
 }
 .innerTimer{
     width: 13px;
-    height: 200px;
+    height: 27.5%;
     position: absolute;
     left: -1px;
     bottom: 0;
@@ -119,31 +121,31 @@ body{
 }
 @keyframes animate {
     0%,10%{
-        height: 200px;
+        height: 27.5%;
     }10%,20%{
-         height: 180px;
+         height: 24%;
      }20%,30%{
-          height: 160px;
+          height: 21%;
       }30%,40%{
-           height: 140px;
+           height: 18%;
        }40%,50%{
-            height: 120px;
+            height:15%;
         }50%,60%{
-             height: 100px;
+             height: 12%;
          }60%,70%{
-              height: 80px;
+              height: 9%;
           }70%,80%{
-               height: 60px;
+               height: 6%;
            }80%,90%{
-                height: 40px;
+                height: 3%;
             }90%,100%{
-                 height: 1px;
+                 height: 1%;
              }
 }
 .levels{
     position: absolute;
-    left: 17rem;
-    top: 5rem;
+    left: 17%;
+    top: 14%;
     color: #979ca5;
     font-size: 25px;
 }
@@ -167,8 +169,8 @@ body{
     color: white;
     font-size: 30px;
     position: absolute;
-    left: 11rem;
-    top: 34rem;
+    left: 14%;
+    top: 79%;
 }
 /*=================*/
 .winMsg{
@@ -253,21 +255,20 @@ body{
     background: url("../img/gameback.jpg");
 }
 #grid{
-    height: 634px;
+    height: 95%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 4%;
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 682px;
-    border: solid 2px #2c4546;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
 }
 #grid div{
-    width: 60px;
-    height: 50px;
+    width: 8.5%;
+    height: 8%;
 }
 .other{
     border: 1px solid #c20000;
