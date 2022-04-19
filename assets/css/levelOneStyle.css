@@ -103,7 +103,7 @@ body{
     left: -5rem;
     width: 6rem;
     color: #65e91e;
-    top: 9rem;
+    top: 73%;
 }
 .innerTimer{
     width: 13px;
@@ -166,11 +166,11 @@ body{
     margin: auto;
 }
 .goIndicator{
-    color: white;
-    font-size: 30px;
+    color: #fffa6c;
+    font-size: 76px;
     position: absolute;
-    left: 14%;
-    top: 79%;
+    left: 3%;
+    top: 40%;
 }
 /*=================*/
 .winMsg{
@@ -178,7 +178,7 @@ body{
     width: 40rem;
     height: 17rem;
     border-radius: 10px;
-    left: 0;
+    left: 2%;
     right: 0;
     top: 0;
     bottom: 0;
@@ -191,7 +191,7 @@ body{
     height: 14rem;
     border: 5px solid red;
     border-radius: 10px;
-    left: 0;
+    left:2%;
     right: 0;
     top: 0;
     bottom: 0;
@@ -228,7 +228,7 @@ body{
     width: 40rem;
     height: 17rem;
     border-radius: 10px;
-    left: 0;
+    left: 2%;
     right: 0;
     top: 0;
     bottom: 0;
@@ -240,7 +240,7 @@ body{
     width: 40rem;
     height: 17rem;
     border-radius: 10px;
-    left: 0;
+    left: 2%;
     right: 0;
     top: 0;
     bottom: 0;

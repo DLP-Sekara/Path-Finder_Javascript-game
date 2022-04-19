@@ -235,8 +235,8 @@ function incrementCount() {
     if(tempCount===-1){
         clearInterval(startingCount)
         tempTimingCount=20;
-        $(".goIndicator").text("Go..");
-        $(".goIndicator").css('color','red');
+        $(".goIndicator").text("Go>>>>");
+        //$(".goIndicator").css('color','red');
     }
 
 }
@@ -267,7 +267,7 @@ function restartInRetry() {
     count = 20;
     $(".timer>h1").text("00 s");
     setTimeout(starTimer,3000);
-    $(".innerTimer").css('height','27.5%');
+    $(".innerTimer").css('height','100%');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
 
     tempCount=3
@@ -289,7 +289,7 @@ function restartInNewGame() {
     count = 20;
     $(".timer>h1").text("00 s");
     setTimeout(starTimer,3000);
-    $(".innerTimer").css('height','27.5%');
+    $(".innerTimer").css('height','100%');
     $(".innerTimer").delay(3100).animate({"height":"0px"},20000,);
 
     tempCount=3
